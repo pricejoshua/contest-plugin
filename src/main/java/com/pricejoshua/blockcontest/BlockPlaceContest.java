@@ -115,6 +115,7 @@ public final class BlockPlaceContest extends JavaPlugin implements Listener {
             Player player = (Player) sender;
             if (player.hasPermission("papertest.reset")){
                 playerBlocks = new HashMap<>();
+                playerList = new HashMap<>();
                 player.sendMessage("reset the contest");
             }else{
                 player.sendMessage("Meanie");
