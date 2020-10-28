@@ -77,7 +77,7 @@ public final class BlockPlaceContest extends JavaPlugin implements Listener {
         }
     }
 
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String args[]){
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
         if(label.equalsIgnoreCase("stats")){
             if(!(sender instanceof Player)){
                 sender.sendMessage("NO");
