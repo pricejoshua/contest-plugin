@@ -1,6 +1,6 @@
 name: PaperTest
 version: ${project.version}
-main: com.pricejoshua.papertest.PaperTest
+main: com.pricejoshua.blockcontest.BlockPlaceContest
 api-version: 1.16
 commands:
   stats:
@@ -10,4 +10,4 @@ commands:
   reset_blocks:
     description: Reset the contest
   save:
-    description: hello
+    description: Saves the blocks to the config file

@@ -1,4 +1,4 @@
-package com.pricejoshua.papertest;
+package com.pricejoshua.blockcontest;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -12,7 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class PaperTest extends JavaPlugin implements Listener {
+public final class BlockPlaceContest extends JavaPlugin implements Listener {
 
     public Map<String, Integer> playerBlocks = new HashMap<>();
     public Map<String, Boolean> playerList = new HashMap<>();
