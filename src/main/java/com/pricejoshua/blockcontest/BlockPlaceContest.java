@@ -126,7 +126,7 @@ public final class BlockPlaceContest extends JavaPlugin implements Listener {
             }
         }
 
-        if(label.equalsIgnoreCase("participants")){
+        if(label.equalsIgnoreCase("scoreboard")){
             class PlayerScore implements Comparable<PlayerScore>{
                 String uuid;
                 int score;
