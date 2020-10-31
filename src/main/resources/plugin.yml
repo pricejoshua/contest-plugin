@@ -1,4 +1,4 @@
-name: PaperTest
+name: BlockContest
 version: ${project.version}
 main: com.pricejoshua.blockcontest.BlockPlaceContest
 api-version: 1.16
@@ -11,5 +11,5 @@ commands:
     description: Reset the contest
   save:
     description: Saves the blocks to the config file
-  participants:
+  leaderboard:
     description: Displays all the players entered in the contest

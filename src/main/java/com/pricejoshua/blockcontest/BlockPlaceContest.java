@@ -126,13 +126,15 @@ public final class BlockPlaceContest extends JavaPlugin implements Listener {
             }
         }
 
-        if(label.equalsIgnoreCase("scoreboard")){
+        if(label.equalsIgnoreCase("leaderboard")){
             class PlayerScore implements Comparable<PlayerScore>{
-                String uuid;
-                int score;
+                public String uuid;
+                public String name;
+                public int score;
 
-                public PlayerScore(String uuid, int score) {
+                public PlayerScore(String uuid, String name, int score) {
                     this.uuid = uuid;
+                    this.name = name;
                     this.score = score;
                 }
 
@@ -146,11 +148,14 @@ public final class BlockPlaceContest extends JavaPlugin implements Listener {
             for (Player player : Bukkit.getOnlinePlayers()){
                 String uuid = player.getUniqueId().toString();
                 if (playerList.containsKey(uuid)){
-                    playerScores.add(new PlayerScore(uuid, playerBlocks.get(uuid)));
+                    playerScores.add(new PlayerScore(uuid, player.getName(), playerBlocks.get(uuid)));
                 }
             }
-
-            sender.sendMessage();
+            String message = "Leaderboard:\n";
+            for (PlayerScore ps : playerScores){
+                message += ps.name + " : " + ps.score + " blocks placed\n";
+            }
+            sender.sendMessage(message);
         }
 
         if(label.equalsIgnoreCase("save")){
