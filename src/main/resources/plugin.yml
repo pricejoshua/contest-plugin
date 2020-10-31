@@ -11,3 +11,5 @@ commands:
     description: Reset the contest
   save:
     description: Saves the blocks to the config file
+  participants:
+    description: Displays all the players entered in the contest

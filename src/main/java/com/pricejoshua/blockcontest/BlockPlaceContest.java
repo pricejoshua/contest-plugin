@@ -1,5 +1,6 @@
 package com.pricejoshua.blockcontest;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -9,8 +10,11 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
 
 public final class BlockPlaceContest extends JavaPlugin implements Listener {
 
@@ -120,6 +124,33 @@ public final class BlockPlaceContest extends JavaPlugin implements Listener {
             }else{
                 player.sendMessage("Meanie");
             }
+        }
+
+        if(label.equalsIgnoreCase("participants")){
+            class PlayerScore implements Comparable<PlayerScore>{
+                String uuid;
+                int score;
+
+                public PlayerScore(String uuid, int score) {
+                    this.uuid = uuid;
+                    this.score = score;
+                }
+
+                @Override
+                public int compareTo(PlayerScore o) {
+                    return Integer.valueOf(this.score).compareTo(Integer.valueOf(o.score));
+                }
+            }
+            List<PlayerScore> playerScores = new ArrayList<>();
+
+            for (Player player : Bukkit.getOnlinePlayers()){
+                String uuid = player.getUniqueId().toString();
+                if (playerList.containsKey(uuid)){
+                    playerScores.add(new PlayerScore(uuid, playerBlocks.get(uuid)));
+                }
+            }
+
+            sender.sendMessage();
         }
 
         if(label.equalsIgnoreCase("save")){
